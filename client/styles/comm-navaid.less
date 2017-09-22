@@ -1,0 +1,141 @@
+.nav-wrapper {
+  width: 100%;
+  height: 3.125rem;
+  padding: 0.3125rem 2%;
+  position: fixed;
+  z-index: 1000;
+  border-bottom: 1px solid white;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.nav-banner {
+  width: 40px;
+}
+
+.banner-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.banner-title {
+  padding-left: 2%;
+  margin: auto;
+  font-family: '微软雅黑 Regular', '微软雅黑';
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1rem;
+  color: white;
+}
+
+.nav-menu {
+  width: 60%;
+  padding: 0px;
+  color: white;
+  text-align: left;
+  display: inline-block;
+
+  li {
+    padding: 0 20px;
+    display: inline-block;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+}
+
+.nav-normal {
+  width: 36%;
+  text-align: right;
+  display: inline-block;
+
+  li {
+    display: inline-block;
+
+    a {
+      padding: 0 20px;
+      color: white;
+      position: relative;
+      text-decoration: none;
+    }
+
+    a:hover {
+      font-size: 14px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .user-setting-none {
+      top: 20px;
+      width: 100%;
+      float: right;
+      position: relative;
+      text-align: center;
+      display: none;
+
+      a {
+        height: 40px;
+        display: block;
+        background-color: white;
+        color: grey;
+        line-height: 40px;
+        text-decoration: none;
+      }
+    }
+
+    .user-setting-flex {
+      top: 20px;
+      width: 100%;
+      float: right;
+      position: relative;
+      text-align: center;
+      display: block;
+      z-index: 9999;
+
+      a {
+        height: 40px;
+        display: block;
+        background-color: white;
+        color: grey;
+        line-height: 40px;
+        text-decoration: none;
+        display: block;
+      }
+    }
+
+  }
+}
+
+.nav-drop {
+  top: 50px;
+  width: 100%;
+  height: 294px;
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  padding-left: 16%;
+  background-size: cover;
+
+  ul {
+    padding: 1%;
+    display: inline-block;
+
+    li {
+      padding: 1%;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

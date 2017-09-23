@@ -1,6 +1,6 @@
-var fs = require('fs');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const fs = require('fs');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 

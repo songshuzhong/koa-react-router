@@ -5,5 +5,5 @@ import routes from './routes';
 
 render(
   <Router routes={routes} history={browserHistory}/>,
-  document.getElementById('app')
+  document.getElementById('react-root')
 );

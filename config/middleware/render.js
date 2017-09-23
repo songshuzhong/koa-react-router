@@ -1,8 +1,5 @@
-const React = require( 'react' );
 const isJsonBody = require( 'koa-is-json' );
-const { renderToStaticMarkup } = require( 'react-dom/server' );
-
-import Html from '../client/scripts/frame/html';
+const serverSideRender = require( '../build-utils/ssr' );
 
 const render = async ( ctx, next ) => {
   if ( !ctx.body || isJsonBody( ctx.body ) ) {
@@ -10,7 +7,7 @@ const render = async ( ctx, next ) => {
     const routerCtx = { basename: '', context: {} };
 
     if ( ctx.accepts( 'html' ) ) {
-      const html = `<!DOCTYPE html>` + renderToStaticMarkup( <Html initialState={ state } routerCtx={ routerCtx } /> );
+      const html = serverSideRender( state, routerCtx );
       ctx.type = 'html';
       ctx.body = html;
     } else if ( ctx.accepts( 'json' ) ) {

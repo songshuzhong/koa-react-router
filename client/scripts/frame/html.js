@@ -1,19 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import routes from '../config/routes';
-
-const clientSideRender = ( state, routerCtx ) => (
-  render(
-    <BrowserRouter { ...routerCtx }>
-      { routes }
-    </BrowserRouter>
-    ,
-    document.getElementById( "app" )
-  )
-);
-
-const initScriptTemplate = ( state, routerCtx ) => `clientSideRender(${ state },${ routerCtx })`;
 
 const Html = ( initialState, routerCtx, children ) => (
   <html lang="zh-cn">
@@ -25,9 +10,8 @@ const Html = ( initialState, routerCtx, children ) => (
     <title>{ 'EPM UI App' }</title>
   </head>
   <body>
-    <div id="app"/>
+    <div id="react-root"/>
     <script src="bundle.js" />
-{/*    <script dangerouslySetInnerHTML={ { __html: initScriptTemplate( JSON.stringify( initialState ), JSON.stringify( routerCtx ) ) } } />*/}
   </body>
   </html>
 );

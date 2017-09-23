@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     return(
       <div className="App">
-        <Comm_Navaid dataSource={`http://coptest.bonc.yz/mdocs/internet/v1/namespaces/cop-pangu/channels/chlType/10`} />
+        <Comm_Navaid dataSource={`/common-navaid/data`} />
         {
           this.props.children
         }

@@ -4,20 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./public/server.bundle.js",
-    "start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback",
-    "start:prod": "npm run build && node ./public/server.bundle.js",
-    "build:client": "webpack",
-    "build:server": "webpack --config webpack.server.config.js",
-    "build": "npm run build:client && npm run build:server"
+    "start": "set NODE_ENV=production node ./confit/start.js",
+    "start:dev": "set NODE_ENV=dev node ./config/start.js",
+    "build": "webpack --config ./config/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "koa": "^2.3.0",
+    "koa-is-json": "^1.0.0",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
-    "koa-is-json": "^1.0.0",
+    "lodash.mergewith": "^4.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^2.4.0"
@@ -26,20 +24,26 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0",
+    "file-loader": "^0.11.2",
     "fs": "0.0.1-security",
+    "koa-webpack": "^1.0.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
-    "css-loader": "^0.28.7",
     "path": "^0.12.7",
     "prop-types": "^15.5.10",
+    "stream": "0.0.2",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.5"
+    "webpack": "^3.2.0",
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-dev-server": "^2.8.2",
+    "webpack-hot-middleware": "^2.18.2"
   }
 }

@@ -1,12 +1,19 @@
 require( 'babel-register' );
 const path = require( 'path' );
 const serve = require( 'koa-static' );
+const webpack = require( 'webpack' );
+const koaWebpack = require( 'koa-webpack' );
 
 const render = require( './middleware/render' );
 
+const webpackConfig = require( './webpack.config' );
+const compiler = webpack( webpackConfig );
+
 const app = require( '../server/app' );
 
-app.use( serve( path.join( __dirname, '..', '/public' ) ) );
+app.use( koaWebpack( { compiler: compiler, dev: { noInfo: true } } ) );
+
+app.use( serve( path.join( __dirname, '..', '/dist' ) ) );
 
 app.use( render );
 

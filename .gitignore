@@ -17,6 +17,7 @@ package-lock.json
 
 # build
 /build/
+/dist/
 
 # static resources
 #/public/

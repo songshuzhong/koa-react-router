@@ -10,7 +10,7 @@ const webpack = require( 'webpack' );
 const mode = process.env.NODE_ENV.trim() || 'dev';
 
 const koaWebpack = require( './koa-webpack' );
-const render = require( './render' );
+const render = require( './renderer' );
 
 const webpackConfig = require( '../webpack.config' )( 'dev' );
 const compiler = webpack( webpackConfig );

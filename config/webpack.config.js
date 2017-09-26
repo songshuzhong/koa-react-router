@@ -8,7 +8,7 @@ const path = require( 'path' );
 const webpack = require( 'webpack' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
-const devConfig = {
+const DEV_CONFIG = {
   entry: {
     app: ['./client/scripts/config/entry.js', 'webpack-hot-middleware/client?reload=true']
   },
@@ -16,7 +16,7 @@ const devConfig = {
   output: {
     path: path.resolve( './dist' ),
     filename: 'bundle.js',
-    publicPath: 'http://localhost:3000'
+    publicPath: '/'
   },
 
   module: {
@@ -37,7 +37,7 @@ const devConfig = {
   ]
 };
 
-const proConfig = {
+const PRO_CONFIG = {
   entry: './client/scripts/config/entry.js',
 
   output: {
@@ -63,17 +63,17 @@ const proConfig = {
 };
 
 module.exports = ( env ) => {
-  let webpackConfig;
+  let WEBPACK_CONFIG;
   switch ( env ) {
     default:
     case 'prod':
     case 'production':
-      webpackConfig = proConfig;
+      WEBPACK_CONFIG = PRO_CONFIG;
       break;
     case 'dev':
     case 'development':
-      webpackConfig = devConfig;
+      WEBPACK_CONFIG = DEV_CONFIG;
   }
 
-  return webpackConfig;
+  return WEBPACK_CONFIG;
 };

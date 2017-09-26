@@ -12,16 +12,8 @@ import compose from 'koa-compose';
 import root from 'app-root-path';
 import * as path from 'path';
 
-/**
- * @method koaDevware
- * @desc   Middleware for Koa to proxy webpack-dev-middleware
- **/
 function koaDevware (dev, compiler) {
 
-  /**
-   * @method waitMiddleware
-   * @desc   Provides blocking for the Webpack processes to complete.
-   **/
   function waitMiddleware () {
     return new Promise((resolve, reject) => {
       dev.waitUntilValid(() => {
@@ -49,10 +41,6 @@ function koaDevware (dev, compiler) {
   };
 }
 
-/**
- * @method koaHotware
- * @desc   Middleware for Koa to proxy webpack-hot-middleware
- **/
 function koaHotware (hot, compiler) {
 
   return async (context, next) => {
@@ -69,10 +57,7 @@ function koaHotware (hot, compiler) {
   };
 }
 
-/**
- * The entry point for the Koa middleware.
- **/
-export default function fn (options) {
+const koaWebpack = (options) => {
 
   const defaults = { dev: {}, hot: {} };
 
@@ -109,3 +94,5 @@ export default function fn (options) {
 
   return Object.assign(middleware, { dev, hot });
 };
+
+module.exports = koaWebpack;

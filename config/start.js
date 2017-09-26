@@ -1,20 +1,14 @@
+/**
+ *@author sshuzhong
+ *@mailTo <a href="mailto:songshuzhong@bonc.com.cn">Song ShuZhong</a>
+ *@Date 2017/9/25$ 22:00$
+ *@desc
+ */
 require( 'babel-register' );
-const path = require( 'path' );
-const serve = require( 'koa-static' );
-const webpack = require( 'webpack' );
-const koaWebpack = require( 'koa-webpack' );
-
-const render = require( './middleware/render' );
-
-const webpackConfig = require( './webpack.config' );
-const compiler = webpack( webpackConfig );
+const NODE_ENV = process.env.NODE_ENV.trim();
 
 const app = require( '../server/app' );
 
-app.use( koaWebpack( { compiler: compiler, dev: { noInfo: true } } ) );
-
-app.use( serve( path.join( __dirname, '..', '/dist' ) ) );
-
-app.use( render );
+NODE_ENV === 'production'? require( './middleware/prod-mode' )( app ): require( './middleware/dev-mode' )( app );
 
 app.listen( 3000, () => console.log( 'the server is running on 3000.' ) );

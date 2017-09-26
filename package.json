@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=production node ./confit/start.js",
-    "start:dev": "set NODE_ENV=dev node ./config/start.js",
-    "build": "webpack --config ./config/webpack.config.js"
+    "start": "set NODE_ENV=production && node ./config/start.js",
+    "start:dev": "set NODE_ENV=dev && node ./config/start.js",
+    "build": "set NODE_ENV=production && webpack --config ./config/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "react-router": "^2.4.0"
   },
   "devDependencies": {
+    "app-root-path": "^2.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -34,7 +35,7 @@
     "extract-text-webpack-plugin": "^3.0",
     "file-loader": "^0.11.2",
     "fs": "0.0.1-security",
-    "koa-webpack": "^1.0.0",
+    "koa-compose": "^4.0.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "path": "^0.12.7",
@@ -43,7 +44,6 @@
     "style-loader": "^0.18.2",
     "webpack": "^3.2.0",
     "webpack-dev-middleware": "^1.11.0",
-    "webpack-dev-server": "^2.8.2",
     "webpack-hot-middleware": "^2.18.2"
   }
 }

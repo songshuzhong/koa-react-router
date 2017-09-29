@@ -16,7 +16,7 @@ const DEV_CONFIG = {
   output: {
     path: path.resolve( './dist' ),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: 'http://localhost:3000/'
   },
 
   module: {
@@ -25,8 +25,8 @@ const DEV_CONFIG = {
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
       {test: /\.jsx?$/,exclude: /node_modules/,loader: 'babel-loader'},
       {test: /\.(less|css)$/, use: ExtractTextPlugin.extract({ use:[ 'css-loader','less-loader'], fallback: 'style-loader',})},
-      {test: /\.(png|jpg|jpeg|gif)$/, loader: 'url?limit=10000&name=/images/[name].[ext]',},
-      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, use: ['file-loader?name=/images/[name].[ext]?[hash]']}
+      {test: /\.(png|jpg|jpeg|gif)$/, loader: 'url?limit=10000&name=[name].[ext]',},
+      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, use: ['file-loader?name=[name].[ext]']}
     ]
   },
 
@@ -52,7 +52,7 @@ const PRO_CONFIG = {
       {test: /\.jsx?$/,exclude: /node_modules/,loader: 'babel-loader'},
       {test: /\.(less|css)$/, use: ExtractTextPlugin.extract({ use:[ 'css-loader','less-loader'], fallback: 'style-loader',})},
       {test: /\.(png|jpg|jpeg|gif)$/, loader: 'url?limit=10000&name=/images/[name].[ext]',},
-      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, use: ['file-loader?name=/images/[name].[ext]?[hash]']}
+      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, use: ['file-loader?name=/images/[name].[ext]']}
     ]
   },
   plugins: [

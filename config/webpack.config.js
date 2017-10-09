@@ -16,7 +16,9 @@ const DEV_CONFIG = {
   output: {
     path: path.resolve( './dist' ),
     filename: 'bundle.js',
-    publicPath: 'http://localhost:3000/'
+    publicPath: 'http://localhost:3000/',
+    library: 'ReactRender',
+    libraryTarget: 'umd'
   },
 
   module: {

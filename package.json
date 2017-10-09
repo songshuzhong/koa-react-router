@@ -15,10 +15,10 @@
     "koa-is-json": "^1.0.0",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
-    "lodash.mergewith": "^4.6.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-router": "^2.4.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router": "^4.0.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "app-root-path": "^2.0.1",

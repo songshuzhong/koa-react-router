@@ -1,3 +1,9 @@
+/**
+ *@author sshuzhong
+ *@mailTo <a href="mailto:songshuzhong@bonc.com.cn">Song ShuZhong</a>
+ *@Date 2017/9/25$ 22:00$
+ *@desc
+ */
 import React from 'react';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';

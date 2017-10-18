@@ -5,6 +5,8 @@
  *@desc
  */
 require( 'babel-register' );
+require.extensions[ '.css' ] =() => { return; };
+require.extensions[ '.svg' ] =() => { return; };
 
 const app = require( '../server/app' );
 

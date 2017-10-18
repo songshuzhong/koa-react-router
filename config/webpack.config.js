@@ -24,9 +24,8 @@ const DEV_CONFIG = {
   module: {
     loaders: [
       {test: /\.json$/,loader: "json"},
-      {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-      {test: /\.jsx?$/,exclude: /node_modules/,loader: 'babel-loader'},
-      {test: /\.(less|css)$/, use: ExtractTextPlugin.extract({ use:[ 'css-loader','less-loader'], fallback: 'style-loader',})},
+      {test: /\.(js|jsx?)$/, exclude: /node_modules/, loader: 'babel-loader'},
+      {test: /\.(less|css)$/, use: ExtractTextPlugin.extract({ use:[ 'css-loader','less-loader'], fallback: 'style-loader'})},
       {test: /\.(png|jpg|jpeg|gif)$/, loader: 'url?limit=10000&name=[name].[ext]',},
       {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, use: ['file-loader?name=[name].[ext]']}
     ]

@@ -1,6 +1,13 @@
+/**
+ *@author sshuzhong
+ *@mailTo <a href="mailto:songshuzhong@bonc.com.cn">Song ShuZhong</a>
+ *@Date 2017/9/25$ 22:00$
+ *@desc
+ */
 import React from 'react';
 
-const Html = ( children ) => {
+const Html = () => {
+
   return(
     <html lang="zh-cn">
     <head>
@@ -12,7 +19,6 @@ const Html = ( children ) => {
     </head>
     <body>
     <div id="react-root"/>
-    <div dangerouslySetInnerHTML={{__html: children.children}}/>
     <script src="bundle.js" />
     </body>
     </html>

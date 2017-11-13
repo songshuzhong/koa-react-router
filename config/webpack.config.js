@@ -10,7 +10,7 @@ const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
 const DEV_CONFIG = {
   entry: {
-    app: ['./config/build-utils/index.js', 'webpack-hot-middleware/client?reload=true']
+    app: ['webpack-hot-middleware/client?reload=true', './config/build-utils/index.js']
   },
 
   output: {

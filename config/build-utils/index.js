@@ -4,7 +4,7 @@
  *@Date 2017/9/25$ 22:00$
  *@desc
  */
-import clientSideRender from './csr';
-import serverSideRender from './ssr';
+import csr from './csr';
+import ssr from './ssr';
 
-export { clientSideRender, serverSideRender };
+export { csr, ssr };

@@ -5,16 +5,16 @@
  *@desc
  */
 const isJsonBody = require( 'koa-is-json' );
-import serverSideRender from '../build-utils/ssr';
 
 const render = ( appBundle ) => {
   return async ( ctx, next ) => {
       if ( !ctx.body || isJsonBody( ctx.body ) ) {
           const state = ctx.body || {};
           const routerCtx = { basename: '', context: {} };
+          const { ssr } = appBundle();
 
           if ( ctx.accepts( 'html' ) ) {
-              const html = serverSideRender( state, routerCtx );
+              const html = ssr( state, routerCtx );
               ctx.type = 'html';
               ctx.body = html;
           } else if ( ctx.accepts( 'json' ) ) {

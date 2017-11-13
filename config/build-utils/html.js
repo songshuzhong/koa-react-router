@@ -6,6 +6,8 @@
  */
 import React from 'react';
 
+const initScriptTemplate = () => `ReactRender.csr();`;
+
 const Html = ( children ) => {
 
   return(
@@ -20,6 +22,7 @@ const Html = ( children ) => {
     <body>
     <div id="react-root" dangerouslySetInnerHTML={ { __html: children.children } }/>
     <script src="bundle.js" />
+    <script dangerouslySetInnerHTML={ { __html: initScriptTemplate() } } />
     </body>
     </html>
   )

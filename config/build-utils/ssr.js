@@ -24,4 +24,4 @@ const serverSideRender = ( state, routerCtx ) => (
   )
 );
 
-module.exports = serverSideRender;
+export default serverSideRender;

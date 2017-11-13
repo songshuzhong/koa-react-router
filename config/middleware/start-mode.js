@@ -7,21 +7,26 @@
 const path = require( 'path' );
 const serve = require( 'koa-static' );
 const webpack = require( 'webpack' );
-const mode = process.env.NODE_ENV.trim() || 'dev';
+const mode = 'dev';
 
-const koaWebpack = require( './koa-webpack' );
 const render = require( './renderer' );
 
-const webpackConfig = require( '../webpack.config' )( 'dev' );
-const compiler = webpack( webpackConfig );
-
 const DEV_MODE = ( app ) => {
+  const koaWebpack = require( 'koa-webpack' );
+
+  const webpackConfig = require( '../webpack.config' )( 'dev' );
+
+  const compiler = webpack( webpackConfig );
+
+  const dynamicAppBundle = require( './dynamic-bundle' );
 
   app.use( serve( path.join( __dirname, '../..', '/dist' ) ) );
 
   app.use( koaWebpack( { compiler: compiler, dev: { noInfo: true } } ) );
 
-  app.use( render );
+  const appBundle = dynamicAppBundle( compiler );
+
+  app.use( render( appBundle ) );
 };
 
 const PROD_MODE = ( app ) => {

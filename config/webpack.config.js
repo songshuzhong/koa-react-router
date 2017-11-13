@@ -10,7 +10,7 @@ const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
 const DEV_CONFIG = {
   entry: {
-    app: ['./client/scripts/config/entry.js', 'webpack-hot-middleware/client?reload=true']
+    app: ['./config/build-utils/index.js', 'webpack-hot-middleware/client?reload=true']
   },
 
   output: {
@@ -39,11 +39,13 @@ const DEV_CONFIG = {
 };
 
 const PRO_CONFIG = {
-  entry: './client/scripts/config/entry.js',
+  entry: './config/build-utils/index.js',
 
   output: {
     path: path.resolve( './dist/' ),
     filename: 'bundle.js',
+    library: 'ReactRender',
+    libraryTarget: 'umd'
   },
 
   module: {

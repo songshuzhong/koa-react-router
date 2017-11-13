@@ -6,7 +6,7 @@
  */
 import React from 'react';
 
-const Html = () => {
+const Html = ( children ) => {
 
   return(
     <html lang="zh-cn">
@@ -18,7 +18,7 @@ const Html = () => {
       <title>{ 'EPM UI App' }</title>
     </head>
     <body>
-    <div id="react-root"/>
+    <div id="react-root" dangerouslySetInnerHTML={ { __html: children.children } }/>
     <script src="bundle.js" />
     </body>
     </html>

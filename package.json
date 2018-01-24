@@ -47,7 +47,7 @@
     "stream": "0.0.2",
     "style-loader": "^0.18.2",
     "vm": "^0.1.0",
-    "webpack": "^3.2.0",
+    "webpack": "^3.8.1",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hot-middleware": "^2.18.2"
   }

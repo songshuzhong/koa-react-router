@@ -7,16 +7,19 @@
 const path = require( 'path' );
 const webpack = require( 'webpack' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const ReactAssetPlugin = require( './build-utils/react-asset-plugin' );
 
-const DEV_CONFIG = {
+const settings = require( './settings' );
+
+const dev = {
   entry: {
-    app: ['webpack-hot-middleware/client?reload=true', './config/build-utils/index.js']
+    app: ['webpack-hot-middleware/client?reload=true', './config/module-utils/index.js']
   },
 
   output: {
-    path: path.resolve( './dist' ),
-    filename: 'bundle.js',
-    publicPath: 'http://localhost:3000/',
+    path: settings.paths.output.views,
+    filename: `${ settings.config.js }.js`,
+    publicPath: `http://localhost:${ settings.config.port }/`,
     library: 'ReactRender',
     libraryTarget: 'umd'
   },
@@ -31,19 +34,24 @@ const DEV_CONFIG = {
     ]
   },
 
+  resolve: {
+    alias: { context: path.resolve( process.cwd(), 'frontend.config.js' ) }
+  },
+
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin({ filename: "main.css", disable: false, allChunks: true }),
+    new ReactAssetPlugin( settings.config )
   ]
 };
 
-const PRO_CONFIG = {
-  entry: './config/build-utils/index.js',
+const pro = {
+  entry: './config/module-utils/index.js',
 
   output: {
-    path: path.resolve( './dist/' ),
-    filename: 'bundle.js',
+    path: settings.paths.output.views,
+    filename: `${ settings.config.js }.js`,
     library: 'ReactRender',
     libraryTarget: 'umd'
   },
@@ -58,6 +66,11 @@ const PRO_CONFIG = {
       {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, use: ['file-loader?name=/images/[name].[ext]']}
     ]
   },
+
+  resolve: {
+    alias: { context: path.resolve( process.cwd(), 'frontend.config.js' ) }
+  },
+
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin({ filename: "main.css", disable: false, allChunks: true }),
@@ -66,17 +79,17 @@ const PRO_CONFIG = {
 };
 
 module.exports = ( env ) => {
-  let WEBPACK_CONFIG;
+  let config;
   switch ( env ) {
     default:
     case 'prod':
     case 'production':
-      WEBPACK_CONFIG = PRO_CONFIG;
+      config = pro;
       break;
     case 'dev':
     case 'development':
-      WEBPACK_CONFIG = DEV_CONFIG;
+      config = dev;
   }
 
-  return WEBPACK_CONFIG;
+  return config;
 };

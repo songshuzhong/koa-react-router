@@ -13,11 +13,11 @@ import Html from './html';
 
 const serverSideRender = ( state, routerCtx ) => (
   `<!DOCTYPE html>` + renderToString(
-    <Html>
+    <Html initialState={ state } routerCtx={ { basename: routerCtx.basename } }>
     {
       renderToStaticMarkup(
         <StaticRouter { ...routerCtx }>
-          <App initialState={ state } />
+          <App initialState={ state } basename={ routerCtx.basename }/>
         </StaticRouter>)
     }
     </Html>

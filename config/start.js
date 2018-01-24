@@ -4,9 +4,7 @@
  *@Date 2017/9/25$ 22:00$
  *@desc
  */
-require( 'babel-register' );
-require.extensions[ '.css' ] =() => { return; };
-require.extensions[ '.svg' ] =() => { return; };
+
 
 const app = require( '../server/app' );
 

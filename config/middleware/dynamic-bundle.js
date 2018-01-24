@@ -1,6 +1,8 @@
 const vm = require( 'vm' );
 const path = require( 'path' );
 
+const settings = require( '../settings' );
+
 const getApp = ( code ) => {
   const exports = {};
   const sandbox = {
@@ -25,7 +27,7 @@ module.exports = ( compiler ) => {
   };
 
   const fs = compiler.outputFileSystem;
-  const filename = path.join( __dirname, '../../dist/bundle.js' );
+  const filename = path.resolve( `${ settings.paths.output.views }/${ settings.config.js }.js` );
 
   compiler.plugin( 'done', () => {
     if ( fs.existsSync( filename ) ) {

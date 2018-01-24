@@ -10,9 +10,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from '../../client/scripts/config/routes';
 
-const clientSideRender = () => (
+const clientSideRender = ( state, routerCtx ) => (
     render(
-        <BrowserRouter><App /></BrowserRouter>,
+        <BrowserRouter { ...routerCtx }>
+          <App initialState={ state } />
+        </BrowserRouter>,
         document.getElementById('react-root')
     )
 );

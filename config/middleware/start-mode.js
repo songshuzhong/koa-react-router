@@ -11,7 +11,7 @@ const mode = 'dev';
 
 const render = require( './renderer' );
 
-const DEV_MODE = ( app ) => {
+const dev = ( app ) => {
   const koaWebpack = require( 'koa-webpack' );
 
   const webpackConfig = require( '../webpack.config' )( 'dev' );
@@ -29,7 +29,7 @@ const DEV_MODE = ( app ) => {
   app.use( render( appBundle ) );
 };
 
-const PROD_MODE = ( app ) => {
+const pro = ( app ) => {
 
   app.use( serve( path.join( __dirname, '../..', '/dist' ) ) );
 
@@ -37,17 +37,17 @@ const PROD_MODE = ( app ) => {
 };
 
 module.exports = ( app ) => {
-  let MODE_CONFIG;
+  let config;
   switch ( mode ) {
     case 'dev':
     case 'development':
-      MODE_CONFIG = DEV_MODE( app );
+      config = dev( app );
       break;
     case 'prod':
     case 'default':
     case 'production':
-      MODE_CONFIG = PROD_MODE( app );
+      config = pro( app );
       break;
   }
-  return MODE_CONFIG;
+  return config;
 };

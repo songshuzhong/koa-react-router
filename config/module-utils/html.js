@@ -21,7 +21,7 @@ const Html = ( { initialState, routerCtx, children } ) => {
       <title>{ 'EPM UI App' }</title>
     </head>
     <body>
-    <div id="react-root" dangerouslySetInnerHTML={ { __html: children.children } }/>
+    <div id="react-root" dangerouslySetInnerHTML={ { __html: children } }/>
     <script dangerouslySetInnerHTML={ { __html: contextPathScript } } />
     <script src="JAVASCRIPT_SOURCE_PLACEHOLDER" />
     <script dangerouslySetInnerHTML={ { __html: initScriptTemplate( JSON.stringify( initialState ), JSON.stringify( routerCtx ) ) } } />

@@ -1,13 +1,23 @@
-import React from 'react' ;
-import { Route } from 'react-router-dom';
-import { App } from '../pages/app';
-import { About } from '../pages/about' ;
-import { Home } from '../pages/home' ;
+import Home from '../pages/home';
+import About from '../pages/about';
+import App from '../pages/app';
 
-export default () => (
-  <div>
-    <Route path="/" component={ Home }/>
-    <Route path="/app" component={ App }/>
-    <Route path="/about" component={ About }/>
-  </div>
-);
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    component: Home
+  },
+  {
+    path: '/app',
+    exact: true,
+    component: App
+  },
+  {
+    path: '/about',
+    exact: true,
+    component: About
+  },
+];
+
+export default routes;

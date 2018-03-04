@@ -22,6 +22,8 @@ const dev = ( app ) => {
 
   app.use( serve( path.join( __dirname, '../..', '/dist' ) ) );
 
+  app.use( serve( path.join( __dirname, '../..', '/public' ) ) );
+
   app.use( koaWebpack( { compiler: compiler, dev: { noInfo: true } } ) );
 
   const appBundle = dynamicAppBundle( compiler );
@@ -32,6 +34,8 @@ const dev = ( app ) => {
 const pro = ( app ) => {
 
   app.use( serve( path.join( __dirname, '../..', '/dist' ) ) );
+
+  app.use( serve( path.join( __dirname, '../..', '/public' ) ) );
 
   app.use( render );
 };

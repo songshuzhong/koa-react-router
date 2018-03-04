@@ -4,7 +4,7 @@ module.exports = {
   title: 'bconsole',
   contextPath: '',
   port: 3000,
-  static: true,
+  static: false,
   extLibs: {
     'react': 'React',
     'react-dom': 'ReactDOM',

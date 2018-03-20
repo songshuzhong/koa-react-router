@@ -1,41 +1,20 @@
 import React, { Component } from 'react'
 
-import context from 'context';
-
 class About extends Component {
-  constructor( props ) {
-    super( props );
-    this.state = {
-      data: 'asdf'
-    };
+  constructor(props) {
+    super(props);
   }
-
-  tiled( root, target, property ) {
-    property = property || '';
-
-    for ( let key in target ) {
-      let newKey = '';
-      let v = target[ key ];
-
-      if ( typeof v === 'object' ) {
-        newKey = property === ''? key: property + `.${ key }`;
-        this.tiled( root, v, newKey );
-      } else {
-        newKey = property === ''? key: property + `.${ key }`;
-        root[ newKey ] = v;
-      }
-    }
-  }
-
-  render() {
-    return(
+  render () {
+    return (
       <div>
-        <p>JSON.stringify( this.state.data )</p>
-        <img src={ `${ context.contextPath }/img/nodejs.png` } />
+        <h2>首页</h2>
+        <p>这是一个 react 学习的基本操作的小栗子</p>
+        <p>通过本次学习可以清楚的掌握， react-router redux的基本使用方法</p>
+        <br/>
+        <br/>
+        <br/>
       </div>
     )
   }
 }
-
-export { About };
-export default About;
+export default About

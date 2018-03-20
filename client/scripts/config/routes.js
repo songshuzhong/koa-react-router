@@ -1,6 +1,6 @@
 import Home from '../pages/home';
 import About from '../pages/about';
-import App from '../pages/app';
+import Plan from '../pages/plan';
 
 const routes = [
   {
@@ -9,9 +9,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/app',
+    path: '/plan',
     exact: true,
-    component: App
+    component: Plan
   },
   {
     path: '/about',

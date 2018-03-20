@@ -1,8 +1,12 @@
 import React from 'react' ;
+import { Provider } from 'react-redux';
+
 import { RenderRoutes } from '../config/router-utils/index';
 
 import routes from './scripts/config/routes';
+import store from './scripts/redux/store';
 
+import './styles/component.css';
 import './styles/nprogress.css';
 
 /**
@@ -13,9 +17,9 @@ import './styles/nprogress.css';
  */
 const App = ( { initialState, basename } ) => {
   return (
-    <div>
+    <Provider store={ store }>
       <RenderRoutes routes={ routes } initialState={ initialState } autoLoadData />
-    </div>
+    </Provider>
   );
 };
 export default App;
